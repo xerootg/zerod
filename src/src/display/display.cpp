@@ -30,6 +30,11 @@ void init() {
   lv_display_set_buffers(_lvd, _buf1, _buf2, sizeof(_buf1), LV_DISPLAY_RENDER_MODE_PARTIAL);
   lv_display_set_flush_cb(_lvd, _flush_display);
 
+  #ifdef ROTATE_KNOMI_180
+    _tft->setRotation(2);
+    lv_display_set_rotation(_lvd, LV_DISPLAY_ROTATION_180);
+  #endif
+
   cst816s::init(); 
 
   _indev = lv_indev_create();

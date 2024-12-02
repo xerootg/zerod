@@ -25,6 +25,10 @@ lv_obj_t *init(const printer::State &state) {
   lv_obj_set_style_arc_width(spinner, 5, LV_PART_MAIN);
   lv_obj_set_style_arc_width(spinner, 5, LV_PART_INDICATOR);
 
+  #ifdef COLOR_SPINNER_INDICATOR
+    lv_obj_set_style_arc_color(spinner, COLOR_SPINNER_INDICATOR, LV_PART_INDICATOR);
+  #endif
+
   name = lv_label_create(scr);
   lv_label_set_text(name, PRINTER_NAME);
   lv_obj_set_style_text_align(name, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN);

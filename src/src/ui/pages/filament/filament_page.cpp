@@ -22,6 +22,11 @@ lv_obj_t *init(lv_obj_t *parent, const printer::State &state) {
       "LOAD",
       _load_click_handler
   );
+
+  #ifdef COLOR_LOAD_BG
+    lv_obj_set_style_bg_color(_load, COLOR_LOAD_BG, LV_PART_MAIN);
+  #endif
+
   _unload = page_helper::create_center_button(
       page,
       0, 28,
@@ -29,6 +34,10 @@ lv_obj_t *init(lv_obj_t *parent, const printer::State &state) {
       "UNLOAD",
       _unload_click_handler
   );
+
+  #ifdef COLOR_UNLOAD_BG
+    lv_obj_set_style_bg_color(_unload, COLOR_UNLOAD_BG, LV_PART_MAIN);
+  #endif
 
   return page;
 }
